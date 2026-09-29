@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internet Support Agent</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Top Navigation Bar -->
+        <nav class="navbar">
+            <div class="navbar-left">
+                <div class="logo">
+                    <div class="logo-icon">🌐</div>
+                    <div class="logo-text">
+                        <h1>Support Agent</h1>
+                        <p>AI-Powered Troubleshooting</p>
+                    </div>
+                </div>
+            </div>
+            <div class="navbar-right">
+                <div class="agent-status">
+                    <div class="status-indicator">
+                        <span class="status-dot"></span>
+                        <span>Agent Online</span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Layout -->
+        <div class="main-layout">
+            <!-- Left Sidebar - Ticket Info -->
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Current Ticket</h3>
+                    <div class="ticket-card">
+                        <div class="ticket-id-display" id="ticketId">TKT-001001</div>
+                        <div class="ticket-field">
+                            <label>Status</label>
+                            <span id="ticketStatus" class="status-badge open">Open</span>
+                        </div>
+                        <div class="ticket-field">
+                            <label>Category</label>
+                            <span id="issueCategory" class="category-badge">Unclassified</span>
+                        </div>
+                        <div class="ticket-field">
+                            <label>Stage</label>
+                            <span id="stage" class="stage-value">START</span>
+                        </div>
+                        <div class="ticket-field">
+                            <label>Progress</label>
+                            <div class="progress-bar">
+                                <div id="progressFill" class="progress-fill" style="width: 10%"></div>
+                            </div>
+                            <span id="step" class="step-counter">Step 1</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Customer Info</h3>
+                    <div class="customer-form">
+                        <input 
+                            type="text" 
+                            id="customerId" 
+                            placeholder="Customer ID" 
+                            value="CUST001"
+                            class="form-input"
+                        >
+                        <input 
+                            type="text" 
+                            id="customerName" 
+                            placeholder="Name (optional)" 
+                            class="form-input"
+                        >
+                        <input 
+                            type="email" 
+                            id="customerEmail" 
+                            placeholder="Email (optional)" 
+                            class="form-input"
+                        >
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <button id="clearBtn" class="btn-secondary full-width">
+                        ↻ New Ticket
+                    </button>
+                </div>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main class="main-content">
+                <!-- Chat Area -->
+                <div class="chat-panel">
+                    <div class="chat-header">
+                        <h2>Support Conversation</h2>
+                        <span class="message-count">
+                            <span id="msgCount">1</span> messages
+                        </span>
+                    </div>
+
+                    <div id="chatMessages" class="chat-area">
+                        <div class="message-group">
+                            <div class="message agent">
+                                <div class="message-avatar">🤖</div>
+                                <div class="message-content">
+                                    <div class="message-bubble">
+                                        <p>Hello! I'm your AI support agent. I'm here to help you troubleshoot any internet connectivity issues.</p>
+                                        <p style="margin-top: 8px;">Please describe what's happening with your internet connection, and I'll guide you through the diagnostic process.</p>
+                                    </div>
+                                    <span class="message-time">Now</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Input Area -->
+                    <div class="input-panel">
+                        <div class="input-wrapper">
+                            <textarea
+                                id="messageInput"
+                                class="message-textarea"
+                                placeholder="Describe your problem or answer the agent's question..."
+                                rows="3"
+                            ></textarea>
+                            <div class="input-footer">
+                                <span class="input-hint">Press Ctrl+Enter to send</span>
+                                <button id="sendBtn" class="btn-primary">
+                                    Send
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="action-buttons">
+                            <button id="escalateBtn" class="btn-secondary">
+                                🚀 Escalate
+                            </button>
+                            <button id="resetBtn" class="btn-secondary">
+                                🔄 Reset
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
